@@ -4,6 +4,11 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(morgan('dev'))
+app.disable('x-powered-by');
 
-const
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+
+app.use('/api', require('./routes/api'));
+
+module.exports = app;
