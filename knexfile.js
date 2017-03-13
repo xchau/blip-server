@@ -3,7 +3,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/q4_project_dev'
+    connection: 'postgres://localhost/q4_capstone_dev'
   },
   production: {
     client: 'pg',
@@ -11,6 +11,6 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/q4_project_test'
+    connection: 'postgres://localhost/q4_capstone_test'
   }
 }
