@@ -1,7 +1,7 @@
 'use strict';
 
 exports.up = function(knex) {
-  knex.schema.createTable('trips', (table) => {
+  return knex.schema.createTable('trips', (table) => {
     table
       .increments();
     table
@@ -25,11 +25,13 @@ exports.up = function(knex) {
       .defaultTo('');
     table
       .integer('votes')
-      .notNullable();
+      .notNullable()
       .defaultTo(0);
+    table
+      .timestamps(true, true);
   });
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTable('trips');
+  return knex.schema.dropTable('trips');
 };
