@@ -14,6 +14,7 @@ router.get('/users', (req, res, next) => {
       if (!users.length) {
         return next();
       }
+      console.log(users);
 
       for (const user of users) {
         delete user.id;
@@ -25,7 +26,7 @@ router.get('/users', (req, res, next) => {
 });
 
 // REGISTER USER //
-router.post('/user', (req, res, next) => {
+router.post('/users', (req, res, next) => {
   const {
     name,
     username,

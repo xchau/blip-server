@@ -14,7 +14,7 @@ app.disable('x-powered-by');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-app.use('/register', users);
+app.use('/api', users);
 
 app.use((req, res) => {
   res.sendStatus(404);
