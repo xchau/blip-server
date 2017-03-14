@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const users = require('./routes/users');
+const token = require('./routes/token');
 
 app.disable('x-powered-by');
 
@@ -15,6 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.use('/api', users);
+app.use('/protected', token);
 
 app.use((req, res) => {
   res.sendStatus(404);
