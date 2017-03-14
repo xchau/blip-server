@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.use('/api', users);
-app.use('/protected', token);
+app.use('/auth', token);
 
 app.use((req, res) => {
   res.sendStatus(404);

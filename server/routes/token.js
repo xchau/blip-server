@@ -6,11 +6,12 @@ const jwt = require('jsonwebtoken');
 const knex = require('../../knex');
 const router = require('express').Router();
 
-router.get('/token', (req, res, _next) => {
+router.get('/', (req, res, _next) => {
   const userToken = req.get('Authorization');
   console.log(userToken);
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
+    console.log(userToken, process.env.JWT_KEY);
     if (err) {
       return res.send(false);
     }
