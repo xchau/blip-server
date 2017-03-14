@@ -8,11 +8,24 @@ const router = require('express').Router();
 
 // TEST ROUTE //
 router.get('/users', (req, res, next) => {
-  res.send('Hi from API');
+  knex('users')
+    .orderBy('id')
+    .then((users) => {
+      if (!users.length) {
+        return next();
+      }
+
+      for (const user of users) {
+        delete user.id;
+        delete user.h_pw;
+      }
+
+      res.send(users);
+    });
 });
 
 // REGISTER USER //
-router.post('/users', (req, res, next) => {
+router.post('/user', (req, res, next) => {
   const {
     name,
     username,
@@ -39,11 +52,14 @@ router.post('/users', (req, res, next) => {
     })
     .then((users) => {
       const user = users[0];
+      console.log(user);
 
       const claim = { userId: user.id };
       const token = jwt.sign(claim, process.env.JWT_KEY, {
         expiresIn: '30 days'
       });
+
+      console.log(token);
 
       user.token = token;
 

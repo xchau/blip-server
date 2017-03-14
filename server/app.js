@@ -1,10 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const app = express();
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const users = require('./routes/users');
-
-const app = express();
 
 app.disable('x-powered-by');
 
