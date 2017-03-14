@@ -15,6 +15,7 @@
     "express": "^4.15.2",
     "foreman": "^2.0.0",
     "humps": "^2.0.0",
+    "jsonwebtoken": "^7.3.0",
     "knex": "^0.12.7",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
