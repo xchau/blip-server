@@ -13,4 +13,4 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/q4_capstone_test'
   }
-}
+};
