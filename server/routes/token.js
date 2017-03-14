@@ -8,11 +8,11 @@ const router = require('express').Router();
 
 router.get('/', (req, res, _next) => {
   const userToken = req.get('Authorization');
-  console.log('user token: ' + userToken);
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
     console.log(userToken, process.env.JWT_KEY);
     if (err) {
+      console.log(err);
       return res.send(false);
     }
 

@@ -67,8 +67,6 @@ router.post('/users', (req, res, next) => {
         expiresIn: '30 days'
       });
 
-      console.log(token);
-
       user.token = token;
 
       delete user.h_pw;
