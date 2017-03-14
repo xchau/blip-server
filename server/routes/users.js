@@ -6,8 +6,13 @@ const jwt = require('jsonwebtoken');
 const knex = require('../../knex');
 const router = require('express').Router();
 
+router.get('/', (req, res) => {
+  res.send('HI FROM API');
+});
+
 // TEST ROUTE //
 router.get('/users', (req, res, next) => {
+  console.log('HERE HERE HERE');
   knex('users')
     .orderBy('id')
     .then((users) => {
