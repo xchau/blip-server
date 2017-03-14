@@ -7,7 +7,7 @@ const knex = require('../../knex');
 const router = require('express').Router();
 
 router.get('/', (req, res, _next) => {
-  const userToken = req.get('Authorization');
+  const userToken = req.get('Authorization').split(' ')[1];
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
     console.log(userToken, process.env.JWT_KEY);
