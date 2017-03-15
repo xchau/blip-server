@@ -29,7 +29,7 @@ router.post('/login', (req, res, next) => {
   let user;
 
   knex('users')
-    .where('email', email.toLowerCase())
+    .where('email', email.trim())
     .first()
     .then((result) => {
       if (!result) {
@@ -46,6 +46,7 @@ router.post('/login', (req, res, next) => {
       const token = jwt.sign(claim, process.env.JWT_KEY, {
         expiresIn: '7 days'
       });
+      console.log('LOOK HERE');
 
       user.token = token;
 
