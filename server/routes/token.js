@@ -23,7 +23,6 @@ router.get('/', (req, res, _next) => {
 
 // AUTHENTICATION //
 router.post('/login', (req, res, next) => {
-  console.log(req.body);
   const { email, password } = req.body;
 
   let user;
@@ -35,7 +34,6 @@ router.post('/login', (req, res, next) => {
       if (!result) {
         throw boom.create(400, 'Invalid email or password');
       }
-      console.log(result);
 
       user = result;
 
@@ -46,7 +44,6 @@ router.post('/login', (req, res, next) => {
       const token = jwt.sign(claim, process.env.JWT_KEY, {
         expiresIn: '7 days'
       });
-      console.log('LOOK HERE');
 
       user.token = token;
 
