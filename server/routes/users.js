@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res, next) => {
-  console.log('HERE HERE HERE');
   knex('users')
     .orderBy('id')
     .then((users) => {

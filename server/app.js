@@ -27,7 +27,7 @@ app.use((err, req, res, _next) => {
     console.log('conditional: ', err);
     return res
       .status(err.output.statusCode)
-      .set('Content-Type', 'text/plain')
+      // .set('Content-Type', 'text/plain')
       .send(err);
   }
 
