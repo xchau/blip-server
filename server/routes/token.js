@@ -23,17 +23,19 @@ router.get('/', (req, res, _next) => {
 
 // AUTHENTICATION //
 router.post('/login', (req, res, _next) => {
+  console.log(req.body);
   const { email, password } = req.body;
 
   let user;
 
   knex('users')
-    .where('email', email)
+    .where('email', email.toLowerCase())
     .first()
     .then((result) => {
       if (!result) {
         throw boom.create(400, 'Invalid email or password');
       }
+      console.log(result);
 
       user = result;
 
