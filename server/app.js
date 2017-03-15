@@ -27,7 +27,7 @@ app.use((err, req, res, _next) => {
     return res
       .status(err.output.statusCode)
       .set('Content-Type', 'text/plain')
-      .send(err.message);
+      .send(err);
   }
 
   // eslint-disable-next-line no-console
