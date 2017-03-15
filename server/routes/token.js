@@ -7,20 +7,21 @@ const jwt = require('jsonwebtoken');
 const knex = require('../../knex');
 const router = require('express').Router();
 
+// AUTHORIZATION //
 router.get('/', (req, res, _next) => {
   const userToken = req.get('Authorization').split(' ')[1];
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
     if (err) {
-      console.log(err);
       return res.send(false);
     }
 
     res.claim = payload;
-    res.send(res.claim);
+    res.send(true);
   });
 });
 
+// AUTHENTICATION //
 router.post('/login', (req, res, _next) => {
   const { email, password } = req.body;
 
