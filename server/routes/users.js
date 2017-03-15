@@ -27,7 +27,7 @@ router.get('/users', (req, res, next) => {
         delete user.h_pw;
       }
 
-      res.send(users);
+      res.send(camelizeKeys(users));
     });
 });
 
@@ -70,7 +70,7 @@ router.post('/users', (req, res, next) => {
 
       delete user.h_pw;
 
-      res.send(user);
+      res.send(camelizeKeys(user));
     })
     .catch((err) => {
       next(err);

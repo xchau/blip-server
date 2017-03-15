@@ -49,7 +49,7 @@ router.post('/login', (req, res, next) => {
 
       delete user.h_pw;
 
-      res.send(user);
+      res.send(camelizeKeys(user));
     })
     .catch((bcrypt.MISMATCH_ERROR), () => {
       throw boom.create(400, 'Invalid email or password');
