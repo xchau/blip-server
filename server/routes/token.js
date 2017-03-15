@@ -22,7 +22,7 @@ router.get('/', (req, res, _next) => {
 });
 
 // AUTHENTICATION //
-router.post('/login', (req, res, _next) => {
+router.post('/login', (req, res, next) => {
   console.log(req.body);
   const { email, password } = req.body;
 
