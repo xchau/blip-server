@@ -7,16 +7,18 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const users = require('./routes/users');
-const token = require('./routes/token');
+const test = require('./routes/test');
+const auth = require('./routes/auth');
+const trips require('./routes/trips');
 
 app.disable('x-powered-by');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-app.use('/api', users);
-app.use('/auth', token);
+app.use('/test', test);
+app.use('/auth', auth);
+app.use('/trips', trips);
 
 app.use((req, res) => {
   res.sendStatus(404);

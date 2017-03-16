@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const knex = require('../../knex');
 const router = require('express').Router();
 
-// AUTHORIZATION //
+// TOKEN AUTHORIZATION //
 router.get('/', (req, res, _next) => {
   const userToken = req.get('Authorization').split(' ')[1];
 
@@ -21,7 +21,7 @@ router.get('/', (req, res, _next) => {
   });
 });
 
-// AUTHENTICATION //
+// LOGIN AUTHENTICATION //
 router.post('/login', (req, res, next) => {
   const { email, password } = req.body;
 
@@ -53,6 +53,52 @@ router.post('/login', (req, res, next) => {
     })
     .catch((bcrypt.MISMATCH_ERROR), () => {
       throw boom.create(400, 'Invalid email or password');
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+// REGISTRATION + AUTHENTICATION //
+router.post('/register', (req, res, next) => {
+  const {
+    name,
+    username,
+    email,
+    profile_pic,
+    password,
+    nationality
+  } = decamelizeKeys(req.body);
+
+  // knex('users') VALIDATION HERE
+  //   .where('user')
+
+  bcrypt.hash(password, 12)
+    .then((h_pw) => {
+      return knex('users')
+        .insert({
+          name,
+          username,
+          email,
+          profile_pic,
+          h_pw,
+          nationality
+        }, '*');
+    })
+    .then((users) => {
+      const user = users[0];
+      console.log(user);
+
+      const claim = { userId: user.id };
+      const token = jwt.sign(claim, process.env.JWT_KEY, {
+        expiresIn: '7 days'
+      });
+
+      user.token = token;
+
+      delete user.h_pw;
+
+      res.send(camelizeKeys(user));
     })
     .catch((err) => {
       next(err);
