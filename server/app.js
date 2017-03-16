@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const test = require('./routes/test');
 const auth = require('./routes/auth');
-const trips require('./routes/trips');
+const trips = require('./routes/trips');
 
 app.disable('x-powered-by');
 
