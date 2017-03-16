@@ -9,9 +9,9 @@ const router = require('express').Router();
 
 router.get('/', (req, res, next) => {
   knex('trips')
-    .select('trips.id, destination, subtitle, votes, trips.updated_at, cover_photo, name')
+    .select('trips.id, trips.destination, trips.subtitle, trips.votes, trips.updated_at, trips.cover_photo, users.name')
     .orderBy('trips.created_at', 'DESC')
-    .innerJoin('users', 'trips.user_id', 'users.id')
+    .innerJoin('users', 'useres.id', 'trips.user_id')
     .then((rows) => {
       res.send(camelizeKeys(rows));
     })
