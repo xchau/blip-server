@@ -14,6 +14,15 @@ exports.seed = function(knex) {
           votes: 6,
           created_at: new Date('2017-03-16 14:26:16 UTC'),
           updated_at: new Date('2017-03-16 14:26:16 UTC')
+        }, {
+          id: 2,
+          user_id: 2,
+          destination: 'Bolivia',
+          subtitle: 'Journey to Salar de Uyuni',
+          cover_photo: 'https://c1.staticflickr.com/8/7351/9620629125_b76cc20fcd_b.jpg',
+          votes: 14,
+          created_at: new Date('2017-03-14 14:26:16 UTC'),
+          updated_at: new Date('2017-03-14 14:26:16 UTC')
         }
       ]);
     })

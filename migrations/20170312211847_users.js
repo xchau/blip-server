@@ -5,10 +5,6 @@ exports.up = function(knex) {
     table
       .increments();
     table
-      .string('name')
-      .notNullable()
-      .defaultTo('');
-    table
       .string('username')
       .notNullable()
       .defaultTo('');

@@ -62,7 +62,6 @@ router.post('/login', (req, res, next) => {
 // REGISTRATION + AUTHENTICATION //
 router.post('/register', (req, res, next) => {
   const {
-    name,
     username,
     email,
     profile_pic,
@@ -70,20 +69,27 @@ router.post('/register', (req, res, next) => {
     nationality
   } = decamelizeKeys(req.body);
 
-  // knex('users') VALIDATION HERE
-  //   .where('user')
+  // VALIDATION //
+  knex('users')
+    .where('email', email)
+    .orWhere('username', username)
+    .then((results) => {
+      if (results.length) {
+        throw boom.create(500, 'Email or username already exists');
+      }
 
-  bcrypt.hash(password, 12)
-    .then((h_pw) => {
-      return knex('users')
-        .insert({
-          name,
-          username,
-          email,
-          profile_pic,
-          h_pw,
-          nationality
-        }, '*');
+      return bcrypt.hash(password, 12)
+        .then((h_pw) => {
+          return knex('users')
+            .insert({
+              name,
+              username,
+              email,
+              profile_pic,
+              h_pw,
+              nationality
+            }, '*');
+        })
     })
     .then((users) => {
       const user = users[0];
