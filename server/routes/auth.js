@@ -82,7 +82,6 @@ router.post('/register', (req, res, next) => {
         .then((h_pw) => {
           return knex('users')
             .insert({
-              name,
               username,
               email,
               profile_pic,
