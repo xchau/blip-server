@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
   knex('trips')
     .select('trips.id, trips.destination, trips.subtitle, trips.votes, trips.updated_at, trips.cover_photo, users.name')
     .orderBy('trips.created_at', 'DESC')
-    .innerJoin('users', 'useres.id', 'trips.user_id')
+    .innerJoin('users', 'users.id', 'trips.user_id')
     .then((rows) => {
       res.send(camelizeKeys(rows));
     })
