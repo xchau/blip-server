@@ -75,7 +75,10 @@ router.post('/register', (req, res, next) => {
     .orWhere('username', username)
     .then((results) => {
       if (results.length) {
-        throw boom.create(500, 'Email or username already exists');
+        return res
+          .status(500)
+          .set('Content-Type', 'text/plain')
+          .send('Email or username already exists.')
       }
 
       return bcrypt.hash(password, 12)
