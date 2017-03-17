@@ -9,7 +9,7 @@ const router = require('express').Router();
 
 // TOKEN AUTHORIZATION //
 router.get('/', (req, res, _next) => {
-  console.log('INSIDE AUTH');
+  console.log(req);
   const userToken = req.get('Authorization').split(' ')[1];
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
