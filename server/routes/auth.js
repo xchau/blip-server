@@ -75,27 +75,20 @@ router.post('/register', (req, res, next) => {
     .orWhere('username', username)
     .then((results) => {
       if (results.length) {
-        const fauxError = {
-          error: 'Email or username already exists.'
-        };
-
-        return res
-          .status(500)
-          .set('Content-Type', 'application/json')
-          .send(JSON.stringify(fauxError));
+        throw boom.badRequest('Email/username is taken.')
       }
 
-      return bcrypt.hash(password, 12)
-        .then((h_pw) => {
-          return knex('users')
-            .insert({
-              username,
-              email,
-              profile_pic,
-              h_pw,
-              nationality
-            }, '*');
-        })
+      return bcrypt.hash(password, 12);
+    })
+    .then((h_pw) => {
+      return knex('users')
+        .insert({
+          username,
+          email,
+          profile_pic,
+          h_pw,
+          nationality
+        }, '*');
     })
     .then((users) => {
       const user = users[0];
