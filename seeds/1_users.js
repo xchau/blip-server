@@ -20,7 +20,7 @@ exports.seed = function(knex) {
           username: 'violet64',
           email: 'emily@user.com',
           h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
-          profile_pic: 'http://www.publicdomainpictures.net/pictures/40000/nahled/violet-flower-background-5.jpg',
+          profile_pic: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Alpine_Violet_Viola_labradorica_Flower_1453px.jpg',
           nationality: 'Vietnam',
           is_traveling: true,
           created_at: new Date('2017-03-12 14:26:16 UTC'),
