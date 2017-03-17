@@ -72,10 +72,17 @@ router.post('/register', (req, res, next) => {
   // VALIDATION //
   knex('users')
     .where('email', email)
-    .orWhere('username', username)
-    .then((results) => {
-      if (results.length) {
-        throw boom.badRequest('Email/username is taken.')
+    .then((rows) => {
+      if (rows.length) {
+        throw boom.badRequest('Email is already taken.');
+      }
+
+      return knex('users')
+        .where('username', username)
+    })
+    .then((rows) => {
+      if (rows.length) {
+        throw boom.badRequest('Username is taken.');
       }
 
       return bcrypt.hash(password, 12);
