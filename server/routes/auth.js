@@ -75,10 +75,11 @@ router.post('/register', (req, res, next) => {
     .orWhere('username', username)
     .then((results) => {
       if (results.length) {
-        return res
-          .status(500)
-          .set('Content-Type', 'application/json')
-          .send('Email or username already exists.')
+        const err = boom.create(500);
+
+        err.message = 'Email or username is already taken';
+
+        throw err;
       }
 
       return bcrypt.hash(password, 12)
