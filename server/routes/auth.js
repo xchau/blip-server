@@ -82,7 +82,7 @@ router.post('/register', (req, res, next) => {
         return res
           .status(500)
           .set('Content-Type', 'application/json')
-          .send(fauxError)
+          .send(JSON.stringify(fauxError));
       }
 
       return bcrypt.hash(password, 12)
