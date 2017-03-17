@@ -26,13 +26,11 @@ app.use((req, res) => {
 
 app.use((err, req, res, _next) => {
   if (err.output && err.output.statusCode) {
-    console.log('ERROR: ' + err);
     return res
       .status(err.output.statusCode)
       .set('Content-Type', 'application/json')
       .send(err);
   }
-  console.log('NON-BOOM ERROR: ' + err);
   // eslint-disable-next-line no-console
   console.error(err.stack);
   res.status(err.status || 500);
