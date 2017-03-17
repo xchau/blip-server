@@ -77,7 +77,7 @@ router.post('/register', (req, res, next) => {
       if (results.length) {
         return res
           .status(500)
-          .set('Content-Type', 'text/plain')
+          .set('Content-Type', 'application/json')
           .send('Email or username already exists.')
       }
 
