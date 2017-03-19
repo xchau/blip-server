@@ -10,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 const test = require('./routes/test');
 const auth = require('./routes/auth');
 const trips = require('./routes/trips');
+const entries = require('./routes/entries');
 
 app.disable('x-powered-by');
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use('/test', test);
 app.use('/auth', auth);
 app.use('/trips', trips);
+app.use('/trips', entries);
 
 app.use((req, res) => {
   res.sendStatus(404);

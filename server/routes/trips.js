@@ -1,9 +1,7 @@
 'use strict';
 
-// const bcrypt = require('bcrypt-as-promised');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const boom = require('boom');
-// const jwt = require('jsonwebtoken');
 const knex = require('../../knex');
 const router = require('express').Router();
 
@@ -13,6 +11,10 @@ router.get('/', (req, res, next) => {
     .orderBy('trips.created_at', 'DESC')
     .innerJoin('users', 'users.id', 'trips.user_id')
     .then((rows) => {
+      if (!rows.length) {
+        throw boom.create(400, 'No trips available');
+      }
+
       res.send(camelizeKeys(rows));
     })
     .catch((err) => {
