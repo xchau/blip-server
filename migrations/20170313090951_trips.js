@@ -20,6 +20,10 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo('');
     table
+      .string('description')
+      .notNullable()
+      .defaultTo('');
+    table
       .string('cover_photo')
       .notNullable()
       .defaultTo('');

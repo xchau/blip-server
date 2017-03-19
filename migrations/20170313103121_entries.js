@@ -16,7 +16,7 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo('');
     table
-      .text('content')
+      .text('directions')
       .defaultTo('');
     table
       .timestamps(true, true);
