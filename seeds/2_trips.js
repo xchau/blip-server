@@ -13,8 +13,8 @@ exports.seed = function(knex) {
           description: 'Letterpress pinterest cardigan jianbing, gentrify normcore single-origin coffee squid green juice vinyl narwhal fashion axe artisan.',
           cover_photo: 'https://c1.staticflickr.com/8/7449/9300381646_f4783c4c25_b.jpg',
           votes: 12,
-          created_at: new Date('2017-03-16 14:26:16 UTC'),
-          updated_at: new Date('2017-03-16 14:26:16 UTC')
+          created_at: new Date('2016-08-16 14:26:16 UTC'),
+          updated_at: new Date('2016-08-16 14:26:16 UTC')
         }, {
           id: 2,
           user_id: 2,

@@ -10,40 +10,40 @@ exports.seed = function(knex) {
           trip_id: 1,
           entry_title: 'A Night in Shangri-La',
           note: 'Vinyl four dollar toast hammock, semiotics freegan craft beer keytar.',
-          created_at: new Date('2017-05-16 14:26:16 UTC'),
-          updated_at: new Date('2017-05-16 14:26:16 UTC')
+          created_at: new Date('2016-08-16 14:26:16 UTC'),
+          updated_at: new Date('2016-08-16 14:26:16 UTC')
         },
         {
           id: 2,
           trip_id: 1,
           entry_title: 'Swayambhu Temple',
           note: 'Occupy snackwave raw denim listicle freegan edison bulb.',
-          created_at: new Date('2017-05-16 15:46:16 UTC'),
-          updated_at: new Date('2017-05-16 15:46:16 UTC')
+          created_at: new Date('2016-08-16 15:46:16 UTC'),
+          updated_at: new Date('2016-08-16 15:46:16 UTC')
         },
         {
           id: 3,
           trip_id: 1,
           entry_title: 'Boudha Stupa',
           note: 'Mustache quinoa woke, kitsch normcore synth raw denim kinfolk.',
-          created_at: new Date('2017-05-16 17:14:16 UTC'),
-          updated_at: new Date('2017-05-16 17:14:16 UTC')
+          created_at: new Date('2016-08-16 17:14:16 UTC'),
+          updated_at: new Date('2016-08-16 17:14:16 UTC')
         },
         {
           id: 4,
           trip_id: 1,
           entry_title: 'Everest Basecamp',
           note: 'Hexagon pinterest lo-fi pok pok vexillologist.',
-          created_at: new Date('2017-05-18 06:14:16 UTC'),
-          updated_at: new Date('2017-05-18 06:14:16 UTC')
+          created_at: new Date('2016-08-18 06:14:16 UTC'),
+          updated_at: new Date('2016-08-18 06:14:16 UTC')
         },
         {
           id: 5,
           trip_id: 1,
           entry_title: 'Conquering Everest',
           note: 'Gentrify health goth locavore banjo tofu DIY woke.',
-          created_at: new Date('2017-05-20 08:29:16 UTC'),
-          updated_at: new Date('2017-05-20 08:29:16 UTC')
+          created_at: new Date('2016-08-20 08:29:16 UTC'),
+          updated_at: new Date('2016-08-20 08:29:16 UTC')
         },
       ]);
     })
