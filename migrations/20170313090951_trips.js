@@ -16,7 +16,7 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo('');
     table
-      .string('subtitle')
+      .string('title')
       .notNullable()
       .defaultTo('');
     table
