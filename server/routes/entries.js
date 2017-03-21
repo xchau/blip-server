@@ -13,7 +13,7 @@ router.get('/:id/entries', (req, res, next) => {
     .orderBy('id')
     .then((entries) => {
       if (!entries.length) {
-        throw boom.create(400, 'No entries available');
+        return res.send([]);
       }
 
       res.send(camelizeKeys(entries));
