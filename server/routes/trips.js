@@ -22,4 +22,23 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.post('/', (req, res, next) => {
+  const { title, destination, cover_photo } = decamelizeKeys(req.body);
+
+  knex('trips')
+    .insert({
+      title,
+      destination,
+      cover_photo
+    }, '*')
+    .then((trips) => {
+      const trip = camelizeKeys(trips[0]);
+
+      res.send(trip);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
