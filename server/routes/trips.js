@@ -23,13 +23,14 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const { title, destination, cover_photo } = decamelizeKeys(req.body);
+  const { title, destination, cover_photo, user_id } = decamelizeKeys(req.body);
 
   knex('trips')
     .insert({
       title,
       destination,
-      cover_photo
+      cover_photo,
+      user_id
     }, '*')
     .then((trips) => {
       const trip = camelizeKeys(trips[0]);
