@@ -26,14 +26,14 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
 
-  console.log(cover_photo);
+  const img = `data:image/png;base64,${cover_photo}`;
   // cloudinary.config({
   //   cloud_name: 'sample',
   //   api_key: '874837483274837',
   //   api_secret: 'a676b67565c6767a6767d6767f676fe1'
   // });
 
-  cloudinary.v2.uploader.upload(cover_photo, { resource_type: "auto" }, (result) => {
+  cloudinary.v2.uploader.upload(img, { resource_type: "auto" }, (result) => {
     console.log('working');
     console.log(result)
   });
