@@ -25,7 +25,6 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
-  console.log(image);
   console.log('AHALJFKLDJFLDKJFLDKJF');
 
   // cloudinary.config({
