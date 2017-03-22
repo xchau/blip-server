@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
 
-  console.log(cover_photo);
+  // console.log(cover_photo);
 
   const img = `data:image/jpg;base64,${cover_photo}`;
 
@@ -34,8 +34,6 @@ router.post('/', (req, res, next) => {
 
   cloudinary.v2.uploader.upload(img, {
     quality: 90,
-    width: 400,
-    height: 400
   }, (error, result) => {
     if (error) {
       console.log(error);
