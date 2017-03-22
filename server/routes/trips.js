@@ -33,9 +33,10 @@ router.post('/', (req, res, next) => {
   let cp;
 
   cloudinary.v2.uploader.upload(img, {
-    quality: 90,
+    quality: 50,
   }, (error, result) => {
     if (error) {
+      console.log('CLOUDINARY ERROR!!');
       console.log(error);
     }
 
