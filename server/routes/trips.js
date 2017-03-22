@@ -2,7 +2,7 @@
 
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const boom = require('boom');
-const cloudinary = require('cloudinary');
+const cloudinary = require('../../cloudinary');
 const knex = require('../../knex');
 const router = require('express').Router();
 
@@ -25,7 +25,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
-
+  console.log(cover_photo);
   console.log('AHALJFKLDJFLDKJFLDKJF');
 
   // cloudinary.config({
