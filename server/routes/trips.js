@@ -24,22 +24,34 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const { title, destination, user_id, body } = decamelizeKeys(req.body);
+  const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
 
-  knex('trips')
-    .insert({
-      title,
-      destination,
-      user_id
-    }, '*')
-    .then((trips) => {
-      const trip = camelizeKeys(trips[0]);
+  console.log('AHALJFKLDJFLDKJFLDKJF');
 
-      res.send(trip);
-    })
-    .catch((err) => {
-      next(err);
-    });
+  // cloudinary.config({
+  //   cloud_name: 'sample',
+  //   api_key: '874837483274837',
+  //   api_secret: 'a676b67565c6767a6767d6767f676fe1'
+  // });
+
+  cloudinary.uploader.upload(cover_photo, (result) => {
+    console.log(result)
+  });
+
+  // knex('trips')
+  //   .insert({
+  //     title,
+  //     destination,
+  //     user_id
+  //   }, '*')
+  //   .then((trips) => {
+  //     const trip = camelizeKeys(trips[0]);
+  //
+  //     res.send(trip);
+  //   })
+  //   .catch((err) => {
+  //     next(err);
+  //   });
 });
 
 module.exports = router;

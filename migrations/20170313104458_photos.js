@@ -14,7 +14,7 @@ exports.up = function(knex) {
     table
       .string('photo_url')
       .notNullable()
-      .defaultTo('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Dialog-error-round.svg/768px-Dialog-error-round.svg.png');
+      .defaultTo('https://upload.wikimedia.org/wikipedia/commons/f/f1/I-404.svg');
     table
       .string('caption')
       .defaultTo('');
