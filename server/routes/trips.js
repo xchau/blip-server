@@ -34,8 +34,11 @@ router.post('/', (req, res, next) => {
     api_secret: process.env.CLOUDINARY_API_SECRET
   });
 
-  cloudinary.v2.uploader.upload(img, { resource_type: "auto" }, (result) => {
-    console.log('working');
+  cloudinary.v2.uploader.upload(img, { resource_type: "auto" }, (error, result) => {
+    if (error) {
+      console.log(error);
+    }
+
     console.log(result)
   });
 
