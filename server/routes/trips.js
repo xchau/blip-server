@@ -25,7 +25,6 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
-  console.log('AHALJFKLDJFLDKJFLDKJF');
 
   // cloudinary.config({
   //   cloud_name: 'sample',
@@ -35,7 +34,7 @@ router.post('/', (req, res, next) => {
 
   cloudinary.uploader.upload(cover_photo, (result) => {
     console.log(result)
-  });
+  }, { resource_type: "auto" });
 
   // knex('trips')
   //   .insert({
