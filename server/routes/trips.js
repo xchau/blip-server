@@ -25,7 +25,6 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
-  const image = cover_photo.toString('utf8');
   console.log(image);
   console.log('AHALJFKLDJFLDKJFLDKJF');
 
@@ -35,7 +34,7 @@ router.post('/', (req, res, next) => {
   //   api_secret: 'a676b67565c6767a6767d6767f676fe1'
   // });
 
-  cloudinary.uploader.upload(image, (result) => {
+  cloudinary.uploader.upload(cover_photo, (result) => {
     console.log(result)
   });
 
