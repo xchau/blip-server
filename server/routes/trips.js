@@ -3,7 +3,6 @@
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const boom = require('boom');
 const cloudinary = require('cloudinary');
-const dotenv = require('dotenv');
 const knex = require('../../knex');
 const router = require('express').Router();
 
