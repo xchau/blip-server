@@ -26,6 +26,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
 
+  console.log(cover_photo);
   // cloudinary.config({
   //   cloud_name: 'sample',
   //   api_key: '874837483274837',
@@ -33,6 +34,7 @@ router.post('/', (req, res, next) => {
   // });
 
   cloudinary.v2.uploader.upload(cover_photo, (result) => {
+    console.log('working');
     console.log(result)
   }, { resource_type: "auto" });
 
