@@ -44,7 +44,7 @@ router.post('/', (req, res, next) => {
       height: 400
     });
 
-    console.log(result)
+    res.send(result)
   });
 
   // knex('trips')
