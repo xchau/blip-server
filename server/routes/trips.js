@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
 
   cloudinary.uploader.upload(cover_photo, (result) => {
     console.log(result)
-  }, { resource_type: "auto" });
+  }, { resource_type: "raw" });
 
   // knex('trips')
   //   .insert({
