@@ -22,7 +22,7 @@ app.use('/test', test);
 app.use('/auth', auth);
 app.use('/trips', trips);
 app.use('/trips', entries);
-app.use('/photos', photos);
+// app.use('/photos', photos);
 
 app.use((req, res) => {
   res.sendStatus(404);

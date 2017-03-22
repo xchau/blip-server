@@ -2,6 +2,7 @@
 
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const boom = require('boom');
+const cloudinary = require('cloudinary');
 const knex = require('../../knex');
 const router = require('express').Router();
 
@@ -23,13 +24,12 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const { title, destination, cover_photo, user_id } = decamelizeKeys(req.body);
+  const { title, destination, user_id, body } = decamelizeKeys(req.body);
 
   knex('trips')
     .insert({
       title,
       destination,
-      cover_photo,
       user_id
     }, '*')
     .then((trips) => {

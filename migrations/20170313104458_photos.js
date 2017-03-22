@@ -5,16 +5,12 @@ exports.up = function(knex) {
     table
       .increments();
     table
-      .integer('trip_id')
+      .integer('entry_id')
       .references('id')
       .inTable('entries')
       .notNullable()
       .onDelete('CASCADE')
       .index();
-    table
-      .string('category')
-      .notNullable()
-      .defaultTo('entry');
     table
       .string('photo_url')
       .notNullable()
