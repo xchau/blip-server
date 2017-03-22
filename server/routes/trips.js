@@ -29,7 +29,11 @@ router.post('/', (req, res, next) => {
   const img = `data:image/jpg;base64,${cover_photo}`;
 
 
-  cloudinary.v2.uploader.upload(img, { resource_type: "image" }, (error, result) => {
+  cloudinary.v2.uploader.upload(img, {
+    quality: 90,
+    width: 400,
+    height: 400
+  }, (error, result) => {
     if (error) {
       console.log(error);
     }
