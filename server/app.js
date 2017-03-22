@@ -16,7 +16,7 @@ const photos = require('./routes/photos');
 app.disable('x-powered-by');
 
 app.use(morgan('dev'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 
 app.use('/test', test);
 app.use('/auth', auth);
