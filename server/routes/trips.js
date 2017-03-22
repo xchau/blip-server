@@ -38,12 +38,6 @@ router.post('/', (req, res, next) => {
       console.log(error);
     }
 
-    cloudinary.image(result.public_id, {
-      quality: 90,
-      width: 400,
-      height: 400
-    });
-
     res.send(result)
   });
 
