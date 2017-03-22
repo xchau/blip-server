@@ -33,7 +33,7 @@ router.post('/', (req, res, next) => {
   //   api_secret: 'a676b67565c6767a6767d6767f676fe1'
   // });
 
-  cloudinary.uploader.upload(cover_photo, (result) => {
+  cloudinary.v2.uploader.upload(cover_photo, (result) => {
     console.log('working');
     console.log(result)
   }, { resource_type: "auto" });
