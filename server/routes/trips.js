@@ -2,7 +2,7 @@
 
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const boom = require('boom');
-const cloudinary = require('cloudinary');
+const cloudinary = require('../../cloudinary');
 const knex = require('../../knex');
 const router = require('express').Router();
 
@@ -28,16 +28,13 @@ router.post('/', (req, res, next) => {
 
   const img = `data:image/jpg;base64,${cover_photo}`;
 
-  cloudinary.config({
-    cloud_name: 'xchau',
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
-  });
 
-  cloudinary.v2.uploader.upload(img, { resource_type: "auto" }, (error, result) => {
+  cloudinary.v2.uploader.upload(img, { resource_type: "image" }, (error, result) => {
     if (error) {
       console.log(error);
     }
+
+    cloudinary.image(result.public_id, {quality: 90});
 
     console.log(result)
   });
