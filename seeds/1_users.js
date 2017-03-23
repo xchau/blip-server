@@ -12,7 +12,7 @@ exports.seed = function(knex) {
           h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
           profile_pic: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png',
           nationality: 'United States',
-          is_traveling: false,
+          is_traveling: 0,
           created_at: new Date('2015-06-15 14:26:16 UTC'),
           updated_at: new Date('2015-06-15 14:26:16 UTC')
         }, {
@@ -22,7 +22,7 @@ exports.seed = function(knex) {
           h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
           profile_pic: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Alpine_Violet_Viola_labradorica_Flower_1453px.jpg',
           nationality: 'Vietnam',
-          is_traveling: true,
+          is_traveling: 2,
           created_at: new Date('2017-03-12 14:26:16 UTC'),
           updated_at: new Date('2017-03-12 14:26:16 UTC')
         }, {
@@ -32,7 +32,7 @@ exports.seed = function(knex) {
           h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
           profile_pic: 'https://res.cloudinary.com/xchau/image/upload/v1490295793/magellan_sqmnsb.jpg',
           nationality: 'Spain',
-          is_traveling: true,
+          is_traveling: 0,
           created_at: new Date('2014-05-08 22:26:16 UTC'),
           updated_at: new Date('2014-05-08 22:26:16 UTC')
         }

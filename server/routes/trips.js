@@ -41,6 +41,8 @@ router.post('/', (req, res, next) => {
       console.error(`Cloudinary Error: ${error}`);
     }
 
+    let insertedTrip;
+
     knex('trips')
       .insert({
         title,
@@ -52,7 +54,15 @@ router.post('/', (req, res, next) => {
       .then((trips) => {
         const trip = camelizeKeys(trips[0]);
 
-        res.send(trip);
+        insertedTrip = trip;
+
+        return knex('users')
+          .where('id', user_id)
+          .update('is_traveling', insertedTrip.id)
+      })
+      .then(() => {
+        console.log(insertedTrip);
+        res.send(insertedTrip);
       })
       .catch((err) => {
         next(err);

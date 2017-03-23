@@ -23,8 +23,8 @@ exports.seed = function(knex) {
           description: 'Green juice fashion axe hexagon, stumptown hammock cliche ennui kombucha heirloom.',
           cover_photo: 'https://c1.staticflickr.com/8/7351/9620629125_b76cc20fcd_b.jpg',
           votes: 235,
-          created_at: new Date('2017-03-14 14:26:16 UTC'),
-          updated_at: new Date('2017-03-14 14:26:16 UTC')
+          created_at: new Date('2017-03-23 14:26:16 UTC'),
+          updated_at: new Date('2017-03-23 14:26:16 UTC')
         }, {
           id: 3,
           user_id: 1,

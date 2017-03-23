@@ -24,9 +24,9 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo('');
     table
-      .boolean('is_traveling')
+      .integer('is_traveling')
       .notNullable()
-      .defaultTo(false);
+      .defaultTo(0);
     table
       .timestamps(true, true);
   });
