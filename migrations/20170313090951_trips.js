@@ -32,6 +32,10 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo(0);
     table
+      .boolean('published')
+      .notNullable()
+      .defaultTo(false);
+    table
       .timestamps(true, true);
   });
 };
