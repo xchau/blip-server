@@ -24,23 +24,28 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
+  const {
+    title,
+    destination,
+    description,
+    user_id,
+    cover_photo
+  } = decamelizeKeys(req.body);
 
-  const img = `data:image/jpg;base64,${cover_photo}`;
+  const photo = `data:image/jpg;base64,${cover_photo}`;
 
-  cloudinary.v2.uploader.upload(img, {
+  cloudinary.v2.uploader.upload(photo, {
     quality: 50,
   }, (error, result) => {
     if (error) {
       console.error(`Cloudinary Error: ${error}`);
     }
 
-    console.log(result);
-
     knex('trips')
       .insert({
         title,
         destination,
+        description,
         user_id,
         cover_photo: result.secure_url
       }, '*')

@@ -17,14 +17,24 @@ exports.seed = function(knex) {
           updated_at: new Date('2015-06-15 14:26:16 UTC')
         }, {
           id: 2,
-          username: 'violet64',
-          email: 'emily@user.com',
+          username: 'vivi64',
+          email: 'vivi@user.com',
           h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
           profile_pic: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Alpine_Violet_Viola_labradorica_Flower_1453px.jpg',
           nationality: 'Vietnam',
           is_traveling: true,
           created_at: new Date('2017-03-12 14:26:16 UTC'),
           updated_at: new Date('2017-03-12 14:26:16 UTC')
+        }, {
+          id: 3,
+          username: 'f_magellan',
+          email: 'fm@user.com',
+          h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
+          profile_pic: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Alpine_Violet_Viola_labradorica_Flower_1453px.jpg',
+          nationality: 'Spain',
+          is_traveling: true,
+          created_at: new Date('2014-05-08 22:26:16 UTC'),
+          updated_at: new Date('2014-05-08 22:26:16 UTC')
         }
       ]);
     })

@@ -7,7 +7,7 @@ exports.seed = function(knex) {
       return knex('trips').insert([
         {
           id: 1,
-          user_id: 1,
+          user_id: 3,
           destination: 'Nepal',
           title: 'Adventures in Nepal',
           description: 'Letterpress pinterest cardigan jianbing, gentrify normcore single-origin coffee squid green juice vinyl narwhal fashion axe artisan.',
