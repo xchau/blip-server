@@ -28,8 +28,6 @@ router.post('/', (req, res, next) => {
 
   const img = `data:image/jpg;base64,${cover_photo}`;
 
-  let cpInfo;
-
   cloudinary.v2.uploader.upload(img, {
     quality: 50,
   }, (error, result) => {
@@ -39,24 +37,22 @@ router.post('/', (req, res, next) => {
 
     console.log(result);
 
-    cpInfo = result;
+    knex('trips')
+      .insert({
+        title,
+        destination,
+        user_id,
+        cover_photo: result.secure_url
+      }, '*')
+      .then((trips) => {
+        const trip = camelizeKeys(trips[0]);
+
+        res.send(trip);
+      })
+      .catch((err) => {
+        next(err);
+      });
   });
-
-  knex('trips')
-    .insert({
-      title,
-      destination,
-      user_id,
-      cover_photo: cpInfo.secure_url
-    }, '*')
-    .then((trips) => {
-      const trip = camelizeKeys(trips[0]);
-
-      res.send(trip);
-    })
-    .catch((err) => {
-      next(err);
-    });
 });
 
 module.exports = router;
