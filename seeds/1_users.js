@@ -30,7 +30,7 @@ exports.seed = function(knex) {
           username: 'f_magellan',
           email: 'fm@user.com',
           h_pw: '$2a$12$xmrePKtdpRDF33znVHjatOEBmIBQXxe0qunxlI3MNkLD1Wi2/47Ei',
-          profile_pic: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Alpine_Violet_Viola_labradorica_Flower_1453px.jpg',
+          profile_pic: 'https://res.cloudinary.com/xchau/image/upload/v1490295793/magellan_sqmnsb.jpg',
           nationality: 'Spain',
           is_traveling: true,
           created_at: new Date('2014-05-08 22:26:16 UTC'),
