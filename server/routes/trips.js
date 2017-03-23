@@ -26,39 +26,37 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { title, destination, user_id, cover_photo } = decamelizeKeys(req.body);
 
-  // console.log(cover_photo);
-
   const img = `data:image/jpg;base64,${cover_photo}`;
 
-  let cp;
+  let cpInfo;
 
   cloudinary.v2.uploader.upload(img, {
     quality: 50,
   }, (error, result) => {
     if (error) {
-      console.log('CLOUDINARY ERROR!!');
-      console.log(error);
+      console.error(`Cloudinary Error: ${error}`);
     }
 
-    cp = result.secure_url;
+    console.log(result);
 
-    res.send(result);
+    cpInfo = result;
   });
 
-  // knex('trips')
-  //   .insert({
-  //     title,
-  //     destination,
-  //     user_id
-  //   }, '*')
-  //   .then((trips) => {
-  //     const trip = camelizeKeys(trips[0]);
-  //
-  //     res.send(trip);
-  //   })
-  //   .catch((err) => {
-  //     next(err);
-  //   });
+  knex('trips')
+    .insert({
+      title,
+      destination,
+      user_id,
+      cover_photo: cpInfo.secure_url
+    }, '*')
+    .then((trips) => {
+      const trip = camelizeKeys(trips[0]);
+
+      res.send(trip);
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
 
 module.exports = router;
