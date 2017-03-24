@@ -18,7 +18,7 @@ const authorize = function(req, res, next) {
 
     next();
   });
-}
+};
 
 router.get('/', (req, res, next) => {
   knex('trips')
@@ -84,8 +84,11 @@ router.post('/', (req, res, next) => {
   });
 });
 
-// router.patch('/publish', (req, res, next) => {
-//
-// })
+router.patch('/publish', authorize, (req, res, next) => {
+  console.log(authorized);
+  console.log(req.claim);
+
+  // knex('trips')
+});
 
 module.exports = router;
