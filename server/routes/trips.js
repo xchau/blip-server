@@ -122,12 +122,15 @@ router.patch('/publish', authorize, (req, res, next) => {
         .update('is_traveling', isTraveling);
     })
     .then((users) => {
+      console.log(users);
       const user = camelizeKeys(users[0]);
+      console.log(user);
       const resObject = {
         user,
         currentTrip,
         isTraveling
       };
+      console.log(resObject);
 
       res.send(resObject);
     })
