@@ -3,6 +3,7 @@
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const boom = require('boom');
 const cloudinary = require('../../cloudinary');
+const jwt = require('jsonwebtoken');
 const knex = require('../../knex');
 const router = require('express').Router();
 
