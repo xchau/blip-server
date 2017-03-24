@@ -6,6 +6,20 @@ const cloudinary = require('../../cloudinary');
 const knex = require('../../knex');
 const router = require('express').Router();
 
+const authorize = function(req, res, next) {
+  const userToken = req.get('Authorization').split(' ')[1];
+
+  jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
+    if (err) {
+      return next(boom.create(401, 'Please log in'));
+    }
+
+    req.claim = payload;
+
+    next();
+  });
+}
+
 router.get('/', (req, res, next) => {
   knex('trips')
     .select('trips.id', 'trips.user_id', 'trips.destination', 'trips.title', 'trips.cover_photo', 'trips.votes', 'trips.published', 'trips.updated_at', 'users.username', 'users.profile_pic AS poster_pic')
@@ -69,5 +83,9 @@ router.post('/', (req, res, next) => {
       });
   });
 });
+
+// router.patch('/publish', (req, res, next) => {
+//
+// })
 
 module.exports = router;
