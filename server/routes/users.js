@@ -6,7 +6,9 @@ const knex = require('../../knex');
 const router = require('express').Router();
 
 router.get('/:id', (req, res, next) => {
+  console.log('inside of /users');
   const id = req.params.id;
+  console.log(id);
 
   knex('users')
     .where('id', id)
