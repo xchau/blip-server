@@ -89,7 +89,7 @@ router.patch('/publish', authorize, (req, res, next) => {
   const { tripId } = req.body;
 
   let status;
-  let currentTrip;
+  let tripInfo;
   let isTraveling;
 
   knex('trips')
@@ -106,13 +106,13 @@ router.patch('/publish', authorize, (req, res, next) => {
         .returning('*');
     })
     .then((trips) => {
-      currentTrip = camelizeKeys(trips[0]);
+      tripInfo = camelizeKeys(trips[0]);
 
       if (status) {
         isTraveling = 0;
       }
       else {
-        isTraveling = currentTrip.id;
+        isTraveling = tripInfo.id;
       }
 
       return knex('users')
@@ -121,15 +121,12 @@ router.patch('/publish', authorize, (req, res, next) => {
         .returning('*');
     })
     .then((users) => {
-      console.log(users);
       const user = camelizeKeys(users[0]);
-      console.log(user);
       const resObject = {
         user,
-        currentTrip,
+        tripInfo,
         isTraveling
       };
-      console.log(resObject);
 
       res.send(resObject);
     })
