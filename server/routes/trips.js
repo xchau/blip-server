@@ -115,11 +115,10 @@ router.patch('/publish', authorize, (req, res, next) => {
         isTraveling = currentTrip.id;
       }
 
-      console.log(isTraveling);
-
       return knex('users')
         .where('id', req.claim.userId)
-        .update('is_traveling', isTraveling);
+        .update('is_traveling', isTraveling)
+        .returning('*');
     })
     .then((users) => {
       console.log(users);
