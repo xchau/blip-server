@@ -91,8 +91,8 @@ router.patch('/publish', authorize, (req, res, next) => {
   console.log('authorized');
   console.log(req.claim);
 
-  knex('trips')
-    .
+  // knex('trips')
+  //   .
 });
 
 module.exports = router;
