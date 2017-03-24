@@ -89,6 +89,8 @@ router.patch('/publish', authorize, (req, res, next) => {
   const { tripId } = req.body;
 
   let status;
+  let currentTrip;
+  let isTraveling;
 
   knex('trips')
     .select('published')
@@ -98,19 +100,36 @@ router.patch('/publish', authorize, (req, res, next) => {
       status = res.published;
       status = !status;
 
-      console.log(status);
-
       return knex('trips')
         .where('id', tripId)
         .update('published', status)
-        .returning('*')
+        .returning('*');
     })
-    .then((rows) => {
-      console.log(rows);
-      const currentTrip = rows[0];
-      console.log(currentTrip);
+    .then((trips) => {
+      currentTrip = camelizeKeys(trips[0]);
 
-      res.send(camelizeKeys(currentTrip));
+      if (status) {
+        isTraveling = 0;
+      }
+      else {
+        isTraveling = currentTrip.id;
+      }
+
+      console.log(isTraveling);
+
+      return knex('users')
+        .where('id', req.claim.userId)
+        .update('is_traveling', isTraveling);
+    })
+    .then((users) => {
+      const user = camelizeKeys(users[0]);
+      const resObject = {
+        user,
+        currentTrip,
+        isTraveling
+      };
+
+      res.send(resObject);
     })
     .catch((err) => {
       next(err);
