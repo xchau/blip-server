@@ -88,20 +88,33 @@ router.post('/', (req, res, next) => {
 router.patch('/publish', authorize, (req, res, next) => {
   const { tripId } = req.body;
 
+  let status;
+
   knex('trips')
     .select('published')
     .where('id', tripId)
     .first()
-    .then((col) => {
-      console.log(col);
+    .then((res) => {
+      status = res.published;
+      status = !status;
+
+      console.log(status);
+
+      return knex('trips')
+        .where('id', tripId)
+        .update('published', status)
+        .returning('*')
+    })
+    .then((rows) => {
+      console.log(rows);
+      const currentTrip = rows[0];
+      console.log(currentTrip);
+
+      res.send(camelizeKeys(currentTrip));
     })
     .catch((err) => {
       next(err);
     });
-
-  // knex('trips')
-  //   .where('id', tripId)
-  //   .update('published', )
 });
 
 module.exports = router;
