@@ -86,13 +86,22 @@ router.post('/', (req, res, next) => {
 });
 
 router.patch('/publish', authorize, (req, res, next) => {
-  console.log(req.body);
-  // const { tripId } = req.body;
-  console.log('authorized');
-  console.log(req.claim);
+  const { tripId } = req.body;
+
+  knex('trips')
+    .select('published')
+    .where('id', tripId)
+    .first()
+    .then((col) => {
+      console.log(col);
+    })
+    .catch((err) => {
+      next(err);
+    });
 
   // knex('trips')
-  //   .
+  //   .where('id', tripId)
+  //   .update('published', )
 });
 
 module.exports = router;
