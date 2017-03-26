@@ -20,4 +20,27 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.get('/random/:id', (req, res, next) => {
+  const tripId = req.params.id;
+
+  knex('entries')
+    .where('trip_id', tripId)
+    .((entries) => {
+      const first = entries[0];
+
+      return knex('photos')
+        .where('entry_id', first.id)
+    })
+    .then((photos) => {
+      if (!photos.length) {
+        return res.send([]);
+      }
+
+      res.send(camelizeKeys(photos));
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
