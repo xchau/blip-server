@@ -65,7 +65,7 @@ router.post('/entries', authorize, (req, res, next) => {
       .insert({
         entry_title,
         note,
-        trip
+        trip_id
       }, '*')
       .then((entries) => {
         insertedEntry = camelizeKeys(entries[0]);
