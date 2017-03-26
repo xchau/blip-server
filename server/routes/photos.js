@@ -26,6 +26,10 @@ router.get('/random/:id', (req, res, next) => {
   knex('entries')
     .where('trip_id', tripId)
     .then((entries) => {
+      if (!entries.length) {
+        return res.send([]);
+      }
+
       const first = entries[0];
 
       return knex('photos')
