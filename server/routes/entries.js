@@ -41,10 +41,11 @@ router.get('/:id/entries', (req, res, next) => {
     });
 });
 
-router.post('/entries', authorize, upload.array('photos', 12), (req, res, next) => {
+router.post('/entries', authorize, upload.array('photos', 12), async (req, res, next) => {
   const { entry_title, note } = decamelizeKeys(req.body);
+  const files = await req.files;
   console.log(req.body);
-  console.log(req.files);
+  console.log(files);
 
 
 });

@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
 
+const multer = require('multer');
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
