@@ -10,7 +10,7 @@ router.get('/:id', (req, res, next) => {
     .where('entry_id', entryId)
     .then((photos) => {
       if (!photos.length) {
-        throw boom.create(400, 'No images available');
+        return res.send([]);
       }
 
       res.send(camelizeKeys(photos));
