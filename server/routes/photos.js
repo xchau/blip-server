@@ -25,7 +25,7 @@ router.get('/random/:id', (req, res, next) => {
 
   knex('entries')
     .where('trip_id', tripId)
-    .((entries) => {
+    .then((entries) => {
       const first = entries[0];
 
       return knex('photos')
