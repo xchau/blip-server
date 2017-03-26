@@ -82,7 +82,7 @@ router.post('/entries', authorize, (req, res, next) => {
 
         const resObject = {
           photo,
-          insertedTrip
+          insertedEntry
         };
 
         res.send(resObject);
