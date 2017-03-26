@@ -12,7 +12,7 @@ const auth = require('./routes/auth');
 const entries = require('./routes/entries');
 const trips = require('./routes/trips');
 const users = require('./routes/users');
-// const photos = require('./routes/photos');
+const photos = require('./routes/photos');
 
 app.disable('x-powered-by');
 
@@ -24,7 +24,7 @@ app.use('/auth', auth);
 app.use('/trips', entries);
 app.use('/trips', trips);
 app.use('/users', users);
-// app.use('/photos', photos);
+app.use('/photos', photos);
 
 app.use((req, res) => {
   res.sendStatus(404);
