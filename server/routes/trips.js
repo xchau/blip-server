@@ -9,6 +9,7 @@ const router = require('express').Router();
 
 const authorize = function(req, res, next) {
   const userToken = req.get('Authorization').split(' ')[1];
+  console.log(userToken);
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
     if (err) {
@@ -135,7 +136,7 @@ router.patch('/publish', authorize, (req, res, next) => {
     });
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', authorize, (req, res, next) => {
   const id = req.params.id;
 
   knex('trips')
