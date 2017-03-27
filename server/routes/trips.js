@@ -9,7 +9,6 @@ const router = require('express').Router();
 
 const authorize = function(req, res, next) {
   const userToken = req.get('Authorization').split(' ')[1];
-  console.log(userToken);
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
     if (err) {
@@ -98,6 +97,7 @@ router.patch('/publish', authorize, (req, res, next) => {
     .where('id', tripId)
     .first()
     .then((res) => {
+      console.log(res);
       status = res.published;
       status = !status;
 
