@@ -125,11 +125,9 @@ router.patch('/entries/:id', (req, res, next) => {
       .then((entries) => {
         updatedEntry = camelizeKeys(entries[0]);
 
-        console.log(updatedEntry);
-
         return knex('photos')
           .insert({
-            entry_id: updatedEntry.entryId,
+            entry_id: updatedEntry.id,
             caption: updatedEntry.caption,
             photo_url: photoObj.secure_url
           }, '*')
