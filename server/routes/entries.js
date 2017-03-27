@@ -93,4 +93,20 @@ router.post('/entries', authorize, (req, res, next) => {
   });
 });
 
+router.delete('/entries/:id', (req, res, next) => {
+  const entryId = req.params.id;
+
+  knex('entries')
+    .where('id', entryId)
+    .del('*')
+    .then((entries) => {
+      const deletedEntry = entries[0];
+
+      res.send(deletedEntry);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
