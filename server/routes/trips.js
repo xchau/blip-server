@@ -135,4 +135,20 @@ router.patch('/publish', authorize, (req, res, next) => {
     });
 });
 
+router.delete('/:id', authorize, (req, res, next) => {
+  const id = req.params.id;
+
+  knex('trips')
+    .where('id', id)
+    .del('*')
+    .then((trips) => {
+      const deletedTrip = camelizeKeys(trips[0]);
+
+      res.send(deletedTrip);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
