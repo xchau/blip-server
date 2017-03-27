@@ -106,12 +106,13 @@ router.patch('/entries/:id', (req, res, next) => {
   let photoObj;
 
   const photo = `data:image/jpg;base64,${image}`;
+  console.log(photo.slice(0, 30));
 
   cloudinary.v2.uploader.upload(photo, {
     quality: 50,
   }, (error, result) => {
     if (error) {
-      console.error(`Cloudinary Error: ${error}`);
+      console.error(`Cloudinary Error: ` + error);
     }
 
     photoObj = result;
@@ -141,6 +142,9 @@ router.patch('/entries/:id', (req, res, next) => {
         };
 
         res.send(resObject);
+      })
+      .catch((err) => {
+        next(err);
       });
   });
 });
