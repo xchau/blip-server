@@ -16,7 +16,6 @@ const authorize = function(req, res, next) {
     }
 
     req.claim = payload;
-    console.log(req.claim);
 
     next();
   });
