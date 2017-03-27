@@ -93,6 +93,58 @@ router.post('/entries', authorize, (req, res, next) => {
   });
 });
 
+router.patch('/entries/:id', (req, res, next) => {
+  const {
+    caption,
+    entry_id,
+    entry_title,
+    image,
+    note
+  } = decamelizeKeys(req.body);
+
+  let updatedEntry;
+  let photoObj;
+
+  const photo = `data:image/jpg;base64,${image}`;
+
+  cloudinary.v2.uploader.upload(photo, {
+    quality: 50,
+  }, (error, result) => {
+    if (error) {
+      console.error(`Cloudinary Error: ${error}`);
+    }
+
+    photoObj = result;
+
+    knex('entries')
+      .where('id', entry_id)
+      .update({
+        entry_title,
+        note
+      }, '*')
+      .then((entries) => {
+        updatedEntry = camelizeKeys(entries[0]);
+
+        return knex('photos')
+          .insert({
+            entry_id: updatedEntry.entryId,
+            caption: updatedEntry.caption,
+            photo_url: photoObj.secure_url
+          }, '*')
+      })
+      .then((photos) => {
+        const photo = camelizeKeys(photos[0]);
+
+        const resObject = {
+          photo,
+          updatedEntry
+        };
+
+        res.send(resObject);
+      });
+  });
+});
+
 router.delete('/entries/:id', (req, res, next) => {
   const entryId = req.params.id;
 
