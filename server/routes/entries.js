@@ -73,7 +73,7 @@ router.post('/entries', authorize, (req, res, next) => {
         return knex('photos')
           .insert({
             entry_id: insertedEntry.id,
-            caption: insertedEntry.caption,
+            caption: caption,
             photo_url: photoObj.secure_url,
           }, '*');
       })
@@ -128,7 +128,7 @@ router.patch('/entries/:id', (req, res, next) => {
         return knex('photos')
           .insert({
             entry_id: updatedEntry.id,
-            caption: updatedEntry.caption,
+            caption: caption,
             photo_url: photoObj.secure_url
           }, '*')
       })
