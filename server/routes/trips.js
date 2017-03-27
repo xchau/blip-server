@@ -38,6 +38,20 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/:id', (req, res, next) => {
+  const id = req.params.id;
+
+  knex('trips')
+    .where('id', id)
+    .first()
+    .then((trip) => {
+      res.send(camelizeKeys(trip));
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.post('/', (req, res, next) => {
   const {
     title,
