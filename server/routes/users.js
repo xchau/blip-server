@@ -40,9 +40,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.patch('/', authorize, (req, res, next) => {
-  console.log(req.body);
   const { userId } = req.claim;
-  console.log(userId);
 
   let { photo } = req.body;
 
@@ -64,6 +62,7 @@ router.patch('/', authorize, (req, res, next) => {
       }, '*')
       .then((users) => {
         const user = camelizeKeys(users[0]);
+        console.log(user);
         const resObject = {
           updatedProfilePic: result,
           user
