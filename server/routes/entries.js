@@ -94,7 +94,6 @@ router.post('/entries', authorize, (req, res, next) => {
 });
 
 router.patch('/entries/:id', (req, res, next) => {
-  console.log(req.body);
   const {
     caption,
     entry_id,
@@ -107,7 +106,6 @@ router.patch('/entries/:id', (req, res, next) => {
   let photoObj;
 
   const photo = `data:image/jpg;base64,${image}`;
-  console.log(photo.slice(0, 30));
 
   cloudinary.v2.uploader.upload(photo, {
     quality: 50,
@@ -126,6 +124,8 @@ router.patch('/entries/:id', (req, res, next) => {
       }, '*')
       .then((entries) => {
         updatedEntry = camelizeKeys(entries[0]);
+
+        console.log(updatedEntry);
 
         return knex('photos')
           .insert({
