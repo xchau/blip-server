@@ -135,7 +135,7 @@ router.patch('/publish', authorize, (req, res, next) => {
     });
 });
 
-router.delete('/:id', authorize, (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
   const id = req.params.id;
 
   knex('trips')
