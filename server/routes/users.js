@@ -45,7 +45,6 @@ router.patch('/', authorize, (req, res, next) => {
   let { photo } = req.body;
 
   photo = 'data:image/jpg;base64,' + photo;
-  console.log(photo);
 
   cloudinary.v2.uploader.upload(photo, {
     quality: 50
@@ -62,11 +61,11 @@ router.patch('/', authorize, (req, res, next) => {
       }, '*')
       .then((users) => {
         const user = camelizeKeys(users[0]);
-        console.log(user);
         const resObject = {
           updatedProfilePic: result,
           user
         };
+        console.log(resObject);
 
         res.send(user);
       })
