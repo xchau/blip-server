@@ -16,6 +16,7 @@ const authorize = function(req, res, next) {
     }
 
     req.claim = payload;
+    console.log(req.claim);
 
     next();
   });
@@ -142,12 +143,19 @@ router.patch('/publish', authorize, (req, res, next) => {
 router.delete('/:id', authorize, (req, res, next) => {
   const id = req.params.id;
 
+  let deletedTrip;
+
   knex('trips')
     .where('id', id)
     .del('*')
     .then((trips) => {
-      const deletedTrip = camelizeKeys(trips[0]);
+      deletedTrip = camelizeKeys(trips[0]);
 
+      return knex('users')
+        .where('id', req.claim.userId)
+        .update({is_traveling: 0}, '*')
+    })
+    .then(() => {
       res.send(deletedTrip);
     })
     .catch((err) => {
