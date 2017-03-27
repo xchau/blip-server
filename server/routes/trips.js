@@ -87,6 +87,7 @@ router.post('/', (req, res, next) => {
 
 router.patch('/publish', authorize, (req, res, next) => {
   const { tripId } = req.body;
+  console.log(req.body);
 
   let status;
   let tripInfo;
@@ -100,6 +101,7 @@ router.patch('/publish', authorize, (req, res, next) => {
       console.log(res);
       status = res.published;
       status = !status;
+      console.log(status);
 
       return knex('trips')
         .where('id', tripId)
@@ -108,6 +110,7 @@ router.patch('/publish', authorize, (req, res, next) => {
     })
     .then((trips) => {
       tripInfo = camelizeKeys(trips[0]);
+      console.log(tripInfo);
 
       if (status) {
         isTraveling = 0;
