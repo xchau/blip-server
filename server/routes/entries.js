@@ -94,6 +94,7 @@ router.post('/entries', authorize, (req, res, next) => {
 });
 
 router.patch('/entries/:id', (req, res, next) => {
+  console.log(req.body);
   const {
     caption,
     entry_id,
