@@ -22,18 +22,27 @@ router.get('/:id', (req, res, next) => {
 
 router.get('/random/:id', (req, res, next) => {
   const tripId = req.params.id;
-  console.log(tripId);
 
   knex('entries')
     .where('trip_id', tripId)
     .then((entries) => {
-      console.log(entries);
       if (entries.length === 0) {
         return res.send([]);
       }
-      console.log('here');
 
-      const first = entries[0];
+      const sorted = entries.sort((a, b) => {
+        if (a.id < b.id) {
+          return 1;
+        }
+        else if (a.id > b.id) {
+          return -1;
+        }
+        return 0;
+      });
+      console.log(sorted);
+
+      const first = sorted[0];
+      console.log(first);
 
       return knex('photos')
         .where('entry_id', first.id)
@@ -42,7 +51,6 @@ router.get('/random/:id', (req, res, next) => {
       if (!photos.length) {
         return res.send([]);
       }
-      console.log('there');
 
       res.send(camelizeKeys(photos));
     })
