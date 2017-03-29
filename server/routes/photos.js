@@ -22,10 +22,12 @@ router.get('/:id', (req, res, next) => {
 
 router.get('/random/:id', (req, res, next) => {
   const tripId = req.params.id;
+  console.log(tripId);
 
   knex('entries')
     .where('trip_id', tripId)
     .then((entries) => {
+      console.log(entries);
       if (!entries.length) {
         return res.send([]);
       }
