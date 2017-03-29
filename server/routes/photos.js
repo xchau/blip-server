@@ -28,9 +28,10 @@ router.get('/random/:id', (req, res, next) => {
     .where('trip_id', tripId)
     .then((entries) => {
       console.log(entries);
-      if (!entries.length) {
+      if (entries.length === 0) {
         return res.send([]);
       }
+      console.log('here');
 
       const first = entries[0];
 
@@ -41,6 +42,7 @@ router.get('/random/:id', (req, res, next) => {
       if (!photos.length) {
         return res.send([]);
       }
+      console.log('there');
 
       res.send(camelizeKeys(photos));
     })
