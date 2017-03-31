@@ -8,6 +8,8 @@ const knex = require('../../knex');
 const router = require('express').Router();
 
 const authorize = function(req, res, next) {
+  console.log(req);
+  console.log(req.get('Authorization'));
   const userToken = req.get('Authorization').split(' ')[1];
 
   jwt.verify(userToken, process.env.JWT_KEY, (err, payload) => {
@@ -38,27 +40,27 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:id', authorize, (req, res, next) => {
+router.get('/history', authorize, (req, res, next) => {
+  console.log(req.claim);
+  const userId = req.claim.userId;
+  console.log(userId);
+
+  knex('trips')
+    .where('user_id', userId)
+    .then((trips) => {
+      if (!trips.length) {
+        return res.send([]);
+      }
+
+      res.send(camelizeKeys(trips));
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/:id', (req, res, next) => {
   const id = req.params.id;
-
-  if (id === 'history') {
-    console.log(req.claim);
-    const userId = req.claim.userId;
-    console.log(userId);
-
-    knex('trips')
-      .where('user_id', userId)
-      .then((trips) => {
-        if (!trips.length) {
-          return res.send([]);
-        }
-
-        res.send(camelizeKeys(trips));
-      })
-      .catch((err) => {
-        next(err);
-      });
-  }
 
   knex('trips')
     .where('id', id)
