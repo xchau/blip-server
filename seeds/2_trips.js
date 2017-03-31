@@ -35,7 +35,7 @@ exports.seed = function(knex) {
           description: 'Readymade craft beer kale chips, enamel pin semiotics slow-carb poutine edison bulb shoreditch.',
           cover_photo: 'https://c1.staticflickr.com/3/2452/3660393408_9b5a61dfdb_b.jpg',
           votes: 0,
-          published: false,
+          published: true,
           created_at: new Date('2015-07-04 18:12:15 UTC'),
           updated_at: new Date('2015-07-04 18:12:15 UTC')
         }
