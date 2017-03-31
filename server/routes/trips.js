@@ -53,21 +53,23 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.get('/history', authorize, (req, res, next) => {
-  const userId = req.claim.userId;
-  console.log(userId);
-
-  knex('trips')
-    .where('user_id', userId)
-    .then((trips) => {
-      if (!trips.length) {
-        return res.send([]);
-      }
-
-      res.send(camelizeKeys(trips));
-    })
-    .catch((err) => {
-      next(err);
-    });
+  console.log('in history');
+  console.log(req.claim);
+  // const userId = req.claim.userId;
+  // console.log(userId);
+  //
+  // knex('trips')
+  //   .where('user_id', userId)
+  //   .then((trips) => {
+  //     if (!trips.length) {
+  //       return res.send([]);
+  //     }
+  //
+  //     res.send(camelizeKeys(trips));
+  //   })
+  //   .catch((err) => {
+  //     next(err);
+  //   });
 });
 
 router.post('/', (req, res, next) => {
