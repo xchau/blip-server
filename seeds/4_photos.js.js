@@ -92,7 +92,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-17 14:26:16 UTC')
         },
         {
-          id: 11,
+          id: 12,
           entry_id: 3,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090228/stupa1_jx6hyz.jpg',
           caption: 'The Boudha Stupa.',
@@ -100,7 +100,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-18 14:26:16 UTC')
         },
         {
-          id: 11,
+          id: 13,
           entry_id: 3,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090284/stupa2_ikizkc.jpg',
           caption: 'Nearby stupas.',
@@ -108,7 +108,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-18 14:26:16 UTC')
         },
         {
-          id: 12,
+          id: 14,
           entry_id: 3,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090359/stupa3_kk93zx.jpg',
           caption: 'Holy man.',
@@ -116,7 +116,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-18 14:26:16 UTC')
         },
         {
-          id: 13,
+          id: 15,
           entry_id: 3,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090623/stupa4_mhdm6k.jpg',
           caption: 'Stupa peak.',
@@ -124,7 +124,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-18 14:26:16 UTC')
         },
         {
-          id: 14,
+          id: 16,
           entry_id: 3,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090681/stupa5_uu6wf5.jpg',
           caption: 'Waiting for his parents patiently.',
@@ -132,7 +132,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-18 14:26:16 UTC')
         },
         {
-          id: 15,
+          id: 17,
           entry_id: 3,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090772/stupa6_u1ymir.jpg',
           caption: 'Prayer flags @ the stupa.',
@@ -140,7 +140,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-18 14:26:16 UTC')
         },
         {
-          id: 16,
+          id: 18,
           entry_id: 4,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090867/eve1_cxlrvg.jpg',
           caption: 'Setting up basecamp in the cold.',
@@ -148,7 +148,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-22 14:26:16 UTC')
         },
         {
-          id: 17,
+          id: 19,
           entry_id: 4,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491090983/eve2_vt0xfo.jpg',
           caption: 'Even at its base, everest is beautiful.',
@@ -156,7 +156,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-22 14:26:16 UTC')
         },
         {
-          id: 18,
+          id: 20,
           entry_id: 4,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491091260/eve3_lqzvjk.jpg',
           caption: 'May be the most perilous part of the climb.',
@@ -164,7 +164,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-22 14:26:16 UTC')
         },
         {
-          id: 19,
+          id: 20,
           entry_id: 4,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491091347/eve4_qz44fn.jpg',
           caption: 'Privacy still exists up here.',
@@ -172,7 +172,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-23 14:26:16 UTC')
         },
         {
-          id: 20,
+          id: 21,
           entry_id: 4,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491091415/eve5_rqh5sv.jpg',
           caption: 'The long, long climb up.',
@@ -180,7 +180,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-24 14:26:16 UTC')
         },
         {
-          id: 21,
+          id: 22,
           entry_id: 4,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491091540/eve6_nmqqgo.jpg',
           caption: 'Hello from the top of the world. :)',
@@ -188,7 +188,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-24 14:26:16 UTC')
         },
         {
-          id: 22,
+          id: 23,
           entry_id: 5,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491091639/flyb1_clmrgp.jpg',
           caption: 'So excited to kick off this long awaited vacation!',
