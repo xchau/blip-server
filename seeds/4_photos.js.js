@@ -227,6 +227,142 @@ exports.seed = function(knex) {
           created_at: new Date('2017-03-25 17:26:16 UTC'),
           updated_at: new Date('2017-03-25 17:26:16 UTC')
         },
+        {
+          id: 29,
+          entry_id: 5,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491096352/paz4_mqgz7s.jpg',
+          caption: 'That\'s a lot of goats, La Paz!',
+          created_at: new Date('2017-03-24 17:26:16 UTC'),
+          updated_at: new Date('2017-03-24 17:26:16 UTC')
+        },
+        {
+          id: 30,
+          entry_id: 6,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491096441/food1_sqgqh3.jpg',
+          caption: 'Freshly made licuado to ease the sweltering heat.',
+          created_at: new Date('2017-03-25 17:26:16 UTC'),
+          updated_at: new Date('2017-03-25 17:26:16 UTC')
+        },
+        {
+          id: 31,
+          entry_id: 6,
+          photo_url: 'http://res.cloudinary.com/xchau/image/upload/v1491096596/food2_bcgcq0.jpg',
+          caption: 'Choripan. Simply delicious.',
+          created_at: new Date('2017-03-25 17:26:16 UTC'),
+          updated_at: new Date('2017-03-25 17:26:16 UTC')
+        },
+        {
+          id: 32,
+          entry_id: 6,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491096729/food3_hxatrq.jpg',
+          caption: 'Milanesa for dinner. Gotta try making this at home.',
+          created_at: new Date('2017-03-25 17:26:16 UTC'),
+          updated_at: new Date('2017-03-25 17:26:16 UTC')
+        },
+        {
+          id: 33,
+          entry_id: 6,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491096828/food4_acei2z.jpg',
+          caption: 'Re-energize with some Bolivian soda.',
+          created_at: new Date('2017-03-25 17:26:16 UTC'),
+          updated_at: new Date('2017-03-25 17:26:16 UTC')
+        },
+        {
+          id: 34,
+          entry_id: 7,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491096967/lei1_bxrznx.jpg',
+          caption: 'Leicester @ night.',
+          created_at: new Date('2015-07-04 20:12:15 UTC'),
+          updated_at: new Date('2015-07-04 20:12:15 UTC')
+        },
+        {
+          id: 35,
+          entry_id: 7,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097101/lei2_d2f3nm.jpg',
+          caption: 'M&Ms World!!',
+          created_at: new Date('2015-07-04 18:12:15 UTC'),
+          updated_at: new Date('2015-07-04 18:12:15 UTC')
+        },
+        {
+          id: 36,
+          entry_id: 7,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097249/pica1_hlmhcz.jpg',
+          caption: 'Picadilly @ Night',
+          created_at: new Date('2015-07-04 21:12:15 UTC'),
+          updated_at: new Date('2015-07-04 21:12:15 UTC')
+        },
+        {
+          id: 37,
+          entry_id: 7,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097384/lonc1_s7autz.jpg',
+          caption: 'Grabbing breakfast in London\'s Chinatown.',
+          created_at: new Date('2015-07-04 08:12:15 UTC'),
+          updated_at: new Date('2015-07-04 08:12:15 UTC')
+        },
+        {
+          id: 38,
+          entry_id: 7,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097472/lonc2_w1wtlp.jpg',
+          caption: 'Chinatown festivities.',
+          created_at: new Date('2015-07-04 08:12:15 UTC'),
+          updated_at: new Date('2015-07-04 08:12:15 UTC')
+        },
+        {
+          id: 39,
+          entry_id: 7,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097615/lei3_xz7yqq.jpg',
+          caption: 'Lunch time!',
+          created_at: new Date('2015-07-04 12:12:15 UTC'),
+          updated_at: new Date('2015-07-04 12:12:15 UTC')
+        },
+        {
+          id: 40,
+          entry_id: 8,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097729/south1_hxvzmj.jpg',
+          caption: 'The area around Southfields seems sparse.',
+          created_at: new Date('2015-07-04 12:12:15 UTC'),
+          updated_at: new Date('2015-07-04 12:12:15 UTC')
+        },
+        {
+          id: 41,
+          entry_id: 8,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097821/south2_vnvufn.jpg',
+          caption: 'Now to find the All England Lawn Sports Club...',
+          created_at: new Date('2015-07-04 12:12:15 UTC'),
+          updated_at: new Date('2015-07-04 12:12:15 UTC')
+        },
+        {
+          id: 42,
+          entry_id: 8,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491097931/south3_w0m34o.jpg',
+          caption: 'The club should be right around the corner!',
+          created_at: new Date('2015-07-04 12:12:15 UTC'),
+          updated_at: new Date('2015-07-04 12:12:15 UTC')
+        },
+        {
+          id: 43,
+          entry_id: 9,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491098054/gf1_byt5aw.jpg',
+          caption: 'Serena about the dish up a bomb!',
+          created_at: new Date('2015-07-05 12:12:15 UTC'),
+          updated_at: new Date('2015-07-05 12:12:15 UTC')
+        },
+        {
+          id: 44,
+          entry_id: 9,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491098122/gf2_qkizet.jpg',
+          caption: 'Novak returning an ill-timed, ill-placed lob from Fed.',
+          created_at: new Date('2015-07-05 12:12:15 UTC'),
+          updated_at: new Date('2015-07-05 12:12:15 UTC')
+        },
+        {
+          id: 45,
+          entry_id: 9,
+          photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491098232/gf3_ajur8b.jpg',
+          caption: 'Good luck, Roger. You\'ll need it.',
+          created_at: new Date('2015-07-05 12:12:15 UTC'),
+          updated_at: new Date('2015-07-05 12:12:15 UTC')
+        },
       ]);
     })
     .then(() => {

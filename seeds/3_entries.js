@@ -57,7 +57,7 @@ exports.seed = function(knex) {
           id: 7,
           trip_id: 3,
           entry_title: 'Leicester Square',
-          note: 'London\'s Chinatown and Picadilly Circus',
+          note: 'London\'s Chinatown and Piccadilly Circus',
           created_at: new Date('2015-07-04 18:12:15 UTC'),
           updated_at: new Date('2015-07-04 18:12:15 UTC')
         },
