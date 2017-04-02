@@ -52,7 +52,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-16 14:26:16 UTC')
         },
         {
-          id: 6,
+          id: 7,
           entry_id: 2,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491089265/nepal11_on30lh.jpg',
           caption: 'Morning prayer.',
@@ -60,7 +60,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-17 14:26:16 UTC')
         },
         {
-          id: 7,
+          id: 8,
           entry_id: 2,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491089396/nepal12_rxuu96.jpg',
           caption: 'Prayer bells.',
@@ -68,7 +68,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-17 14:26:16 UTC')
         },
         {
-          id: 8,
+          id: 9,
           entry_id: 2,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491089822/nepal13_ryu57n.jpg',
           caption: 'Farmland. Watch out for cow dung.',
@@ -76,7 +76,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-17 14:26:16 UTC')
         },
         {
-          id: 9,
+          id: 10,
           entry_id: 2,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491089882/nepal14_sduib9.jpg',
           caption: 'The beauty of Swayambhu Temple.',
@@ -84,7 +84,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2016-08-17 14:26:16 UTC')
         },
         {
-          id: 10,
+          id: 11,
           entry_id: 2,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491089993/nepal15_djxvtu.jpg',
           caption: 'Buddhist monk.',
