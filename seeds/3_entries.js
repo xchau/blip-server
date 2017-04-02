@@ -53,6 +53,30 @@ exports.seed = function(knex) {
           created_at: new Date('2017-03-26 14:26:16 UTC'),
           updated_at: new Date('2017-03-26 14:26:16 UTC')
         },
+        {
+          id: 7,
+          trip_id: 3,
+          entry_title: 'Leicester Square',
+          note: 'London\'s Chinatown and Picadilly Circus',
+          created_at: new Date('2015-07-04 18:12:15 UTC'),
+          updated_at: new Date('2015-07-04 18:12:15 UTC')
+        },
+        {
+          id: 8,
+          trip_id: 3,
+          entry_title: 'Southfields Station',
+          note: 'The All England Lawn Tennis and Croquet Club is a short walk from the station.',
+          created_at: new Date('2015-07-04 22:12:15 UTC'),
+          updated_at: new Date('2015-07-04 22:12:15 UTC')
+        },
+        {
+          id: 9,
+          trip_id: 3,
+          entry_title: 'The Grandfinals',
+          note: 'I\'m excited to see if the Fed Express can overcome the Djoker!',
+          created_at: new Date('2015-07-05 18:12:15 UTC'),
+          updated_at: new Date('2015-07-05 18:12:15 UTC')
+        },
       ]);
     })
     .then(() => {
