@@ -196,7 +196,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2017-03-24 17:26:16 UTC')
         },
         {
-          id: 23,
+          id: 24,
           entry_id: 5,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491094216/flyb2_dt6g5q.jpg',
           caption: 'About to land @ El Alto.',
@@ -204,7 +204,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2017-03-24 17:26:16 UTC')
         },
         {
-          id: 24,
+          id: 25,
           entry_id: 5,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491094288/paz1_pums1n.jpg',
           caption: 'I don\'t think we\'re in Kansas anymore.',
@@ -212,7 +212,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2017-03-25 17:26:16 UTC')
         },
         {
-          id: 25,
+          id: 26,
           entry_id: 5,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491094395/paz2_fiv687.jpg',
           caption: 'Hostel is in a pretty lively area.',
@@ -220,7 +220,7 @@ exports.seed = function(knex) {
           updated_at: new Date('2017-03-25 17:26:16 UTC')
         },
         {
-          id: 26,
+          id: 27,
           entry_id: 5,
           photo_url: 'https://res.cloudinary.com/xchau/image/upload/v1491094505/paz3_rqlhgu.jpg',
           caption: 'Hostel La Paz has a very cozy vibe.',
