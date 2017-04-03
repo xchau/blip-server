@@ -15,7 +15,7 @@ exports.up = function(knex) {
     table
       .string('profile_pic')
       .notNullable()
-      .defaultTo('');
+      .defaultTo('https://res.cloudinary.com/xchau/image/upload/v1491177802/user_igxxka.png');
     table
       .string('h_pw')
       .notNullable();
